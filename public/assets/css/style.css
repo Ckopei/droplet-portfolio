@@ -11,3 +11,11 @@ header {
 .temp {
     object-fit: cover;
 }
+
+body {
+    background-color: green;
+}
+
+.parallax {
+    position:static;
+}

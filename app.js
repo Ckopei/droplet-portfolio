@@ -1,9 +1,10 @@
 var express = require("express");
+var path = require('path')
 var PORT = 3000;
 var app = express();
 
 // public folder routes are not seen as router routes.
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
