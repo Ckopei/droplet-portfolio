@@ -1,0 +1,13 @@
+nav {
+    background-color: transparent !important;
+    color: black;
+}
+header {
+    /* background-color: red; */
+    /* background-image: linear-gradient(to bottom right, cyan, yellow); */
+    background-image: url('/public/assets/img/img1.jpg');
+}
+
+.temp {
+    object-fit: cover;
+}
