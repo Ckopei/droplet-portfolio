@@ -1,11 +1,15 @@
-var headerHeight = 200;
+$(document).ready(function () {
+  AOS.init();
+//if scroll is past 900px, changed the navbar into a sticky-top nav
+  var headerHeight = 675;
 
-$(window).bind('scroll', function () {
-if ($(window).scrollTop() > headerHeight) {
-    $('#myNav').removeClass('navbar-top');
-    $('#myNav').addClass('navbar-fixed-top');
-} else {
-    $('#myNav').removeClass('navbar-fixed-top');
-    $('#myNav').addClass('navbar-top');
-}
-}); 
+  $(window).bind('scroll', function () {
+    if ($(window).scrollTop() > headerHeight) {
+      $('#myNav').addClass('sticky-top');
+      $('#myNav').addClass('navColor')
+    } else {
+      $('#myNav').removeClass('sticky-top');
+      $('#myNav').removeClass('navColor')
+    }
+  });
+})
