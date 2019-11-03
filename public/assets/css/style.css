@@ -22,10 +22,18 @@ body {
 }
 .name {
     font-size: 45px;
-    color: white;
+    color: #121212;
 }
-#about {
+.pageMarks {
     text-decoration: underline;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.card {
+    margin-top:10px;
+    margin-bottom:10px;
 }
 .myBtn {
     padding: 10px 20px;
