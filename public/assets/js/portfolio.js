@@ -1,6 +1,6 @@
 $(document).ready(function () {
   AOS.init();
-//if scroll is past 900px, changed the navbar into a sticky-top nav
+  //if scroll is past 900px, changed the navbar into a sticky-top nav
   var headerHeight = 675;
 
   $(window).bind('scroll', function () {
@@ -12,4 +12,14 @@ $(document).ready(function () {
       $('#myNav').removeClass('navColor')
     }
   });
+
+  $(".myBtn").click(function () {
+    $("body,html").animate(
+      {
+        scrollTop: $("#portfolio").offset().top
+      },
+      800 //speed
+    );
+  });
+
 })
