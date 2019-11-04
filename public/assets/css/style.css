@@ -7,9 +7,6 @@ html, body {
    overflow-x: hidden;
 }
 
-.navColor{
-  background-color: #0B0C10!important;
-}
 .background {
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(22,59,78,1) 100%);
@@ -63,7 +60,7 @@ div a {
 }
 .pageMarks {
     text-decoration: underline;
-    color: white;
+    color: #121212;
     font-size: 30px;
     text-align: center;
     margin: 4rem;

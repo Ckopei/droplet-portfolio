@@ -5,11 +5,13 @@ $(document).ready(function () {
 
   $(window).bind('scroll', function () {
     if ($(window).scrollTop() > headerHeight) {
-      $('#myNav').addClass('sticky-top');
-      $('#myNav').addClass('navColor')
-    } else {
       $('#myNav').removeClass('sticky-top');
-      $('#myNav').removeClass('navColor')
+      $('#myNav').addClass('fixed-top');
+      
+
+    } else {
+      $('#myNav').addClass('sticky-top');
+      $('#myNav').removeClass('fixed-top');
     }
   });
 
