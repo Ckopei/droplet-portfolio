@@ -15,8 +15,13 @@
 </head>
 
 <body>
-    <nav id="myNav" class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Fixed top</a>
+    <nav id="myNav" class="nav navbar navbar-dark bg-dark">
+        <!-- <a class="navbar-brand" href="#">Fixed top</a> -->
+        <a id="skillsNav" class="nav-link active" href="#">Skills</a>
+        <a id="aboutNav" class="nav-link" href="#">About</a>
+        <a id="portNav" class="nav-link" href="#">Portfolio</a>
+        <a id="contactNav" class="nav-link" href="#">Contact</a>
+
     </nav>
     <header>
 
@@ -39,7 +44,7 @@
     <div class="background">
 
         <section>
-            <h1 class="pageMarks" style="margin-top:-2rem;" class="text-center name" data-aos="fade-right">Skills</h1>
+            <h1 class="pageMarks skills text-center name" style="margin-top:-2rem;" data-aos="fade-right">Skills</h1>
             <div class="container">
                 <div class="row text-center pageMarks">
                     <div class="col-lg-2 col-sm-1 col-md-1" data-aos="flip-up" data-aos-delay="150"><img class="logos"
@@ -101,7 +106,9 @@
         </section>
         <section>
             <h1 id="portfolio" data-aos="fade-left" data-aos-mirror="true" data-aos-delay="100">Portfolio</h1>
-            <p class="text-center" data-aos="flip-up" data-aos-delay="250">To see more of my work that didn't make it into a card, please visit my github page! Theres plenty of back-end and command line work i'm enthusiatic about that just didn't have a front end to it.</p>
+            <p class="text-center" data-aos="flip-up" data-aos-delay="250">To see more of my work that didn't make it
+                into a card, please visit my github page! Theres plenty of back-end and command line work i'm
+                enthusiatic about that just didn't have a front end to it.</p>
 
             <div class="container">
                 <div class="row">
@@ -191,9 +198,12 @@
                             <img class="card-img" src="assets/img/burger.jpg" alt="Bologna">
                             <div class="card-img-overlay text-black d-flex flex-column justify-content-top">
                                 <h4 class="card-title">EventZip</h4>
-                                <p class="card-text">A fun burger eating app. This app follows MVC structure and uses a self made ORM. Express for middleware/routing, Express-handlebars for templating, and MySql for the database. </p>
+                                <p class="card-text">A fun burger eating app. This app follows MVC structure and uses a
+                                    self made ORM. Express for middleware/routing, Express-handlebars for templating,
+                                    and MySql for the database. </p>
                                 <div class="link d-flex">
-                                    <a href="https://stormy-plains-88570.herokuapp.com/" class="card-link">See it deployed</a>
+                                    <a href="https://stormy-plains-88570.herokuapp.com/" class="card-link">See it
+                                        deployed</a>
                                     <a href="https://github.com/Ckopei/Burger" class="card-link">See the repo</a>
                                 </div>
                             </div>
@@ -204,6 +214,11 @@
 
             </div>
 
+        </section>
+
+        <section>
+            <h1 id="contact" class="text-center name" data-aos="fade-right">Contact me</h1>
+            
         </section>
     </div>
 

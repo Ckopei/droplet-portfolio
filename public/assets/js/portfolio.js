@@ -23,5 +23,41 @@ $(document).ready(function () {
       800 //speed
     );
   });
+  $("#skillsNav").click(function () {
+    event.preventDefault();
+    $("body,html").animate(
+      {
+        scrollTop: $(".skills").offset().top
+      },
+      800 //speed
+    );
+  });
+  $("#aboutNav").click(function () {
+    event.preventDefault();
+    $("body,html").animate(
+      {
+        scrollTop: $("#about").offset().top
+      },
+      800 //speed
+    );
+  });
+  $("#portNav").click(function () {
+    event.preventDefault();
+    $("body,html").animate(
+      {
+        scrollTop: $("#portfolio").offset().top
+      },
+      800 //speed
+    );
+  });
+  $("#contactNav").click(function () {
+    event.preventDefault();
+    $("body,html").animate(
+      {
+        scrollTop: $("#contact").offset().top
+      },
+      800 //speed
+    );
+  });
 
 })
