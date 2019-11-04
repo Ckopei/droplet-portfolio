@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require('path')
-const dotenv = require('dotenv').config()
+require('dotenv').config();
 const PORT = 3000;
 const app = express();
 const router = express.Router();
@@ -22,10 +22,13 @@ router.get("/", function(req, res) {
   // res.sendFile(path.join(__dirname+"/index.html"));
   res.sendFile("index.html")
 });
+router.get("/contact.html", function(req, res) {
+  // res.sendFile(path.join(__dirname+"/index.html"));
+  res.sendFile("contact.html")
+});
 
 // POST route from contact form
 app.post('/contact', (req, res) => {
-
   // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -41,17 +44,17 @@ app.post('/contact', (req, res) => {
   const mailOpts = {
     from: 'Your sender info here', // This is ignored by Gmail
     to: GMAIL_USER,
-    subject: 'New message from contact form at tylerkrys.ca',
+    subject: 'New message from contact form at kopels.dev',
     text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
   }
 
   // Attempt to send the email
-  smtpTrans.sendMail(mailOpts, (error, response) => {
-    if (error) {
-      res.render('contact-failure') // Show a page indicating failure
+  smtpTrans.sendMail(mailOpts, (err, response) => {
+    if (err) {
+      res.status(500).send({ error : err.message }); // Show a page indicating failure
     }
     else {
-      res.render('contact-success') // Show a page indicating success
+      res.status(200).send("Dong!"); // Show a page indicating success
     }
   })
 })
