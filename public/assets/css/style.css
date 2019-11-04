@@ -6,8 +6,9 @@
 .navColor{
 background-color: #0B0C10!important;
 }
-body {
-    background-color: RGB(22,59,78);;
+.background {
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(22,59,78,1) 100%);
 }
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -26,8 +27,9 @@ body {
 }
 .aboutText {
   font-size: 21px;
-  color: white;
+  color: #121212;
 }
+
 .meImg {
   width: 250px;
   height: 250px;
@@ -40,6 +42,20 @@ body {
 .pageMarks {
     text-decoration: underline;
     color: white;
+    font-size: 30px;
+    text-align: center;
+    margin: 4rem;
+}
+#about {
+  text-decoration: underline;
+    color: #121212;
+    font-size: 30px;
+    text-align: center;
+    margin: 4rem;
+}
+#portfolio {
+  text-decoration: underline;
+    color: #121212;
     font-size: 30px;
     text-align: center;
     margin: 4rem;
