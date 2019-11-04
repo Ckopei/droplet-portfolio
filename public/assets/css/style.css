@@ -39,6 +39,23 @@ background-color: #0B0C10!important;
     font-size: 45px;
     color: #121212;
 }
+.card-img {
+  height: 437px;
+  width: 350px;
+  opacity: .6;
+}
+.card:hover > *:not(.card-img-overlay) {
+  opacity: .3;
+}
+div a {
+  color: black;
+  padding: 10px 20px;
+    border: 2px solid black;
+    box-sizing: inherit;
+    display: inline-block;
+    font-size: 10pt;
+    cursor: pointer;
+}
 .pageMarks {
     text-decoration: underline;
     color: white;
