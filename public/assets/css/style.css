@@ -7,7 +7,7 @@
 background-color: #0B0C10!important;
 }
 body {
-    background-color: #1F2833;
+    background-color: RGB(22,59,78);;
 }
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -20,6 +20,19 @@ body {
     font-size: 30px;
     color: white;
 }
+.logos {
+  height: 100px;
+  width: 100px;
+}
+.aboutText {
+  font-size: 21px;
+  color: white;
+}
+.meImg {
+  width: 250px;
+  height: 250px;
+  margin-right: 20px;
+}
 .name {
     font-size: 45px;
     color: #121212;
@@ -29,7 +42,7 @@ body {
     color: white;
     font-size: 30px;
     text-align: center;
-    margin-bottom: 2rem;
+    margin: 4rem;
 }
 .card {
     margin-top:10px;
