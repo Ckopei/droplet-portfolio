@@ -15,6 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.json());
 
 
 
@@ -29,7 +30,13 @@ router.get("/contact.html", function(req, res) {
 
 // POST route from contact form
 app.post('/contact', (req, res) => {
-  // Instantiate the SMTP server
+  console.log(req.body);
+
+  if (req.body.name === '' || req.body.message === ''){
+    return console.log("shut yo mouth")
+  }
+  else {
+    // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
@@ -51,12 +58,12 @@ app.post('/contact', (req, res) => {
   // Attempt to send the email
   smtpTrans.sendMail(mailOpts, (err, response) => {
     if (err) {
-      res.status(500).send({ error : err.message }); // Show a page indicating failure
+      return console.log(err) // Show a page indicating failure
     }
-    else {
-      res.status(200).send("Dong!"); // Show a page indicating success
-    }
+    console.log("MEssage sent.")
   })
+  }
+  
 })
 
 app.listen(PORT, function() {

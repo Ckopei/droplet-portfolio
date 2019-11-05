@@ -7,7 +7,7 @@ $(document).ready(function () {
     if ($(window).scrollTop() > headerHeight) {
       $('#myNav').removeClass('sticky-top');
       $('#myNav').addClass('fixed-top');
-      
+
 
     } else {
       $('#myNav').addClass('sticky-top');
@@ -59,5 +59,26 @@ $(document).ready(function () {
       800 //speed
     );
   });
+
+  $("#formBtn").on("click", function () {
+    event.preventDefault();
+    let namePost = $("#namePost").val();
+    let emailPost = $("#emailPost").val();
+    let messagePost = $("#messagePost").val();
+
+    $.post(
+      "/contact",
+      {
+        name: namePost,
+        email: emailPost,
+        message: messagePost
+      },
+      function (res) { console.log(res) })
+
+    // console.log(namePost);
+    // console.log(emailPost);
+    // console.log(messagePost);
+
+  })
 
 })
