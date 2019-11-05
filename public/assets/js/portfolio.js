@@ -14,6 +14,9 @@ $(document).ready(function () {
       $('#myNav').removeClass('fixed-top');
     }
   });
+  $("#openEmail").click(function() {
+    window.open('mailto:cameron@kopel.dev');
+  })
 
   $(".myBtn").click(function () {
     $("body,html").animate(

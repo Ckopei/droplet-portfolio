@@ -68,6 +68,9 @@ div a {
     font-size: 10pt;
     cursor: pointer;
 }
+.noBorder {
+  border: none;
+}
 .pageMarks {
     text-decoration: underline;
     color: #121212;
