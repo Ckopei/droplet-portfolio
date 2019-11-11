@@ -14,7 +14,7 @@ $(document).ready(function () {
       $('#myNav').removeClass('fixed-top');
     }
   });
-  $("#openEmail").click(function() {
+  $("#openEmail").click(function () {
     window.open('mailto:cameron@kopel.dev');
   })
 
@@ -68,6 +68,7 @@ $(document).ready(function () {
     let namePost = $("#namePost").val();
     let emailPost = $("#emailPost").val();
     let messagePost = $("#messagePost").val();
+    
 
     $.post(
       "/contact",
@@ -77,10 +78,12 @@ $(document).ready(function () {
         message: messagePost
       },
       function (res) { console.log(res) })
+      
+      $("#namePost").val('')
+        $("#emailPost").val('')
+        $("#messagePost").val('')
+        $('.alert').show();
 
-    // console.log(namePost);
-    // console.log(emailPost);
-    // console.log(messagePost);
 
   })
 
