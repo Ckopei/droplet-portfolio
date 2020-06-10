@@ -68,8 +68,8 @@ $(document).ready(function () {
     let namePost = $("#namePost").val();
     let emailPost = $("#emailPost").val();
     let messagePost = $("#messagePost").val();
+      
     
-
     $.post(
       "/contact",
       {
@@ -77,14 +77,16 @@ $(document).ready(function () {
         email: emailPost,
         message: messagePost
       },
-      function (res) { console.log(res) })
-      
-      $("#namePost").val('')
-        $("#emailPost").val('')
-        $("#messagePost").val('')
-        $('.alert').show();
-
-
+      function (res, err) {
+        if (err) {
+          $('#alert-failure').show;
+          throw new Error('You broke something with my server side validation. Why would you do this?');
+        }
+          else {
+          $('#contactForm').trigger("reset");
+          $('#alert-success').show();
+        };
+        });
   })
 
 })

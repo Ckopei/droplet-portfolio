@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require('path')
 require('dotenv').config();
-const PORT = 3000;
+const PORT = 3000 || process.env;
 const app = express();
 const router = express.Router();
 const nodemailer = require('nodemailer')
@@ -30,42 +30,37 @@ router.get("/contact.html", function(req, res) {
 
 // POST route from contact form
 app.post('/contact', (req, res) => {
-  console.log(req.body);
-
-  if (req.body.name === '' || req.body.message === ''){
-    return console.log("shut yo mouth")
-  }
-  else {
-    // Instantiate the SMTP server
+  check('req.body.name').isLength({ min: 3 });
+  check('req.body.message').isLength({ min: 15 });
+  // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
+    host: "smtp.gmail.com",
     port: 465,
     secure: true,
     auth: {
       user: GMAIL_USER,
-      pass: GMAIL_PASS
+      pass: GMAIL_PASS,
     }
-  })
+  }),
 
   // Specify what the email will look like
   const mailOpts = {
-    from: 'Your sender info here', // This is ignored by Gmail
+    from: "Your sender info here", // This is ignored by Gmail
     to: GMAIL_USER,
-    subject: 'New message from contact form at kopels.dev',
-    text: `${req.body.name} (${req.body.email}) says: ${req.body.message}`
-  }
+    subject: "New message from contact form at kopels.dev",
+    text: `The name is the sender: ${req.body.name},
+    The email of the sender: (${req.body.email}),
+    says: ${req.body.message}.`
+  };
 
   // Attempt to send the email
-  smtpTrans.sendMail(mailOpts, (err, response) => {
+  smtpTrans.sendMail(mailOpts, (err, res) => {
     if (err) {
-      return console.log(err) // Show a page indicating failure
-    }
-    console.log("MEssage sent.")
-  })
-  }
-  
-})
-
-app.listen(PORT, function() {
-  console.log("Server listening on: http://localhost:" + PORT);
+      return console.log(err); // Show a page indicating failure}
+    } else return res.json;
+  });
 });
+
+  app.listen(PORT, function () {
+    console.log("Server listening on: http://localhost:" + PORT);
+  });
