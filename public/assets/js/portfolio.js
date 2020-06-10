@@ -80,9 +80,10 @@ $(document).ready(function () {
       },
       function (res, err) {
         if (err) {
-          $("#alert-failure").show;
+          $("#alert-failure").show();
           console.log(err);
         } else {
+          console.log(res);
           $("#contactForm").trigger("reset");
           $("#alert-success").show();
         }

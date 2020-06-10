@@ -20,10 +20,10 @@
 <body>
     <nav id="myNav" class="nav navbar navbar-dark bg-dark">
         <!-- <a class="navbar-brand" href="#">Fixed top</a> -->
-        <a id="skillsNav" class="nav-link col-12 active" href="#">Skills</a>
-        <a id="aboutNav" class="nav-link col-12" href="#">About</a>
-        <a id="portNav" class="nav-link col-12" href="#">Portfolio</a>
-        <a id="contactNav" class="nav-link col-12" href="#">Contact</a>
+        <a id="skillsNav" class="nav-link col-3 active" href="#">Skills</a>
+        <a id="aboutNav" class="nav-link col-3" href="#">About</a>
+        <a id="portNav" class="nav-link col-3" href="#">Portfolio</a>
+        <a id="contactNav" class="nav-link col-3" href="#">Contact</a>
     </nav>
 
     <header>
@@ -31,12 +31,16 @@
             <div class="container text-center">
                 <!-- <img class="topContainer" src="assets/img/banner.png" /> -->
                 <p class="intro">Hello, I'm
-                    <span class="name text-focus-in">Cameron Kopel.</span></p>
-                <p class="intro">I'm a full-stack web developer.</p>
-                <p>I truly hoped you liked the <span class="text-focus-in">cheesy introduction</span> before I
-                    understood CSS animation for myself.</p>
+                    <span class="name text-focus-in">Cameron Kopel.</span>
+                </p>
+                <p class="intro">
+                    I'm a full-stack web developer.
+                </p>
+                <p class='intro' style='color:black;'>
+                    I truly hoped you liked the <span class="text-focus-in" style='color:whitesmoke;'>cheesy introduction</span> before I understood CSS animation for myself.
+                </p>
                 <div class="myBtn">
-                    View my (old, git based) work
+                    View my (<em>old</em>, git based) work
                 </div>
 
 
@@ -107,7 +111,7 @@
 
 
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center cardsMB">
 
             <div data-aos="fade-right" data-aos-delay="250" class="col-sm-8 col-md-6 col-lg-4">
                 <div class="card">
@@ -165,50 +169,108 @@
 
         </div>
 
-        <div class="row">
-            <h1 id="contact" class="text-center name m-5" data-aos="fade-right">Contact me</h1>
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="400">
-                    <a class="noBorder" target='_blank' href="www.github.com/ckopei"><i
-                            class="fab fa-5x fa-github-alt"></i></a>
+        <div class="row justify-content-center">
+
+            <div data-aos="fade-right" data-aos-delay="250" class=" col-sm-8 col-md-6 col-lg-4 aos-init aos-animate">
+                <div class="card">
+                    <img class="card-img" src="assets/img/droplet.jpg" alt="Footprint">
+                    <div class="card-img-overlay text-black d-flex flex-column justify-content-top">
+                        <h4 class="card-title">This website!</h4>
+                        <p class="card-text">While the website itself wasn't difficult, configuring a Ubuntu
+                            server with NginX as a reverse proxy, node for routing, and successfully deploying
+                            to a Digital Ocean droplet was a fun challenge.</p>
+                        <div class="link d-flex">
+                            <a href="#" class="card-link">See it deployed</a>
+                            <a href="https://github.com/Ckopei/droplet-portfolio" target="_blank" class="card-link">See
+                                the
+                                repo</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="350">
-                    <a class="noBorder" target='_blank' href="https://leetcode.com/ckopei/"><i
-                            class="fab fa-5x fa-js-square"></i></a>
+            </div>
+
+            <div data-aos="flip-up" data-aos-delay="250" class=" col-sm-8 col-md-6 col-lg-4 aos-init aos-animate">
+                <div class="card">
+                    <img class="card-img" src="assets/img/friend-finder.jpeg" alt="Bologna">
+                    <div class="card-img-overlay text-black d-flex flex-column justify-content-top">
+                        <h4 class="card-title">Friend-Finder</h4>
+                        <p class="card-text">A website to find your new best friend!</p>
+                        <div class="link d-flex">
+                            <a href="https://nameless-plateau-10379.herokuapp.com/" target="_blank"
+                                class="card-link">See it
+                                deployed</a>
+                            <a href="https://github.com/Ckopei/friend-finder" target="_blank" class="card-link">See the
+                                repo</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="300">
-                    <a class="noBorder" target='_blank' href="https://www.linkedin.com/in/cameronkopel/"><i
-                            class="fab fa-5x fa-linkedin-in"></i></a>
-                </div>
-                <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="250">
-                    <a class="noBorder" target='_blank' id="openEmail" href="#"><i
-                            class="fas fa-5x fa-envelope-open-text"></i></a>
-                </div>
-                <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="200">
-                    <a class="noBorder" href="tel:8636042792"><i class="fas fa-5x fa-mobile"></i></a>
+            </div>
+
+            <div data-aos="fade-left" data-aos-delay="250" class=" col-sm-8 col-md-6 col-lg-4 aos-init">
+                <div class="card">
+                    <img class="card-img" src="assets/img/burger.jpg" alt="Bologna">
+                    <div class="card-img-overlay text-black d-flex flex-column justify-content-top">
+                        <h4 class="card-title">Burger Time</h4>
+                        <p class="card-text">A fun burger eating app. This app follows MVC structure and uses a
+                            self made ORM. Express for middleware/routing, Express-handlebars for templating,
+                            and MySql for the database. </p>
+                        <div class="link d-flex">
+                            <a href="https://enigmatic-sea-32808.herokuapp.com/" target="_blank" class="card-link">See
+                                it
+                                deployed</a>
+                            <a href="https://github.com/Ckopei/Burger" target="_blank" class="card-link">See the
+                                repo</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
+        <div class="row justify-content-center">
+            <h1 id="contact" class="text-center col-12" data-aos="fade-right">Contact me</h1>
+
+            <div class="row justify-content-center">
+                <!-- <h1 id="contact" class="text-center name m-5" data-aos="fade-right">Contact me</h1> -->
+                <div class="row justify-content-center mb-5">
+                    <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="400">
+                        <a class="noBorder" target='_blank' href="www.github.com/ckopei"><i
+                                class="fab fa-10x fa-github-alt"></i></a>
+                    </div>
+                    <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="350">
+                        <a class="noBorder" target='_blank' href="https://leetcode.com/ckopei/"><i
+                                class="fab fa-10x fa-js-square"></i></a>
+                    </div>
+                    <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="300">
+                        <a class="noBorder" target='_blank' href="https://www.linkedin.com/in/cameronkopel/"><i
+                                class="fab fa-10x fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="250">
+                        <a class="noBorder" target='_blank' id="openEmail" href="#"><i
+                                class="fas fa-10x fa-envelope-open-text"></i></a>
+                    </div>
+                    <div class="col-lg-2 col-sm-12 text-center" data-aos="fade-left" data-aos-delay="200">
+                        <a class="noBorder" href="tel:8636042792"><i class="fas fa-10x fa-mobile"></i></a>
+                    </div>
+                </div>
+            </div>
+    </section>
 
     <section>
         <div class="container">
             <div class="row justify-content-center">
-
                 <form id='contactForm' class="col-6" data-aos="fade-right">
 
-                    <div class="alerts">
-                        <div class="alert hidden alert-failure alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            Please include something in your message! Otherwise it is not constructive criticism, but
-                            trying to see what breaks.
-                        </div>
+                    <div class="form-group alert alert-warning alert-dismissible fade" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"> Please include something in your message! Otherwise it is not
+                                constructive criticism, but trying to see what breaks at that point.</span></button>
+                    </div>
 
-                        <div class="alert hidden alert-success alert-dismissable">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            Thank you for your message! I will get back to you shortly.
-                        </div>
+
+                    <div class=" form-group alert alert-warning alert-dismissible fade" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true"> Thank you! I will try to get back to you shortly, but if a
+                                quicker response is needed, please call me on my cell phome.</span></button>
                     </div>
 
                     <div class="form-group">
@@ -225,8 +287,7 @@
                             placeholder="I'm always happy for a critique!"></textarea>
                     </div>
                     <button id="formBtn" type="submit" class="btn btn-primary mb-5">Submit</button>
-                </form>
-            </div>
+            </form>
         </div>
     </section>
 

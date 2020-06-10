@@ -1,10 +1,11 @@
 .jumbotron {
     background-image: url("../img/banner.png");
     background-size: 100% 100%;
-    height: 750px;
+    height: 100vh;
 }
 nav a {
   color: white;
+  text-align: CENTER;
 }
 nav a:hover {
   color:#121212;
@@ -12,11 +13,12 @@ nav a:hover {
 }
 html, body {
    overflow-x: hidden;
+   /*background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(22,59,78,1) 100%);*/
 }
 
-body {
+html {
   background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(22,59,78,1) 100%);
+  
 }
 .vertical-center {
     min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
@@ -36,6 +38,12 @@ body {
 .aboutText {
   font-size: 21px;
   color: #121212;
+}
+#contact{
+font-size: 72px !important;
+text-align: center;
+margin-top: 12rem;
+margin-bottom: 10rem;
 }
 
 .meImg {
@@ -70,9 +78,8 @@ div a {
     font-size: 10pt;
     cursor: pointer;
 }
-div .card {
-  display: inline-block
-
+div.card {
+  display: overflow-hidden;
 }
 .noBorder {
   border: none;
@@ -111,8 +118,12 @@ div .card {
     cursor: pointer;
     color: white;
 }
+
+.cardMB {
+  margin-bottom: 20px;
+}
 #alert-success, #alert-failure {
-  display: hidden;
+  display: false;
 }
 .text-focus-in {
 	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
