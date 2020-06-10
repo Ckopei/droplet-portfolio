@@ -65,28 +65,28 @@ $(document).ready(function () {
 
   $("#formBtn").on("click", function () {
     event.preventDefault();
-    let namePost = $("#namePost").val();
-    let emailPost = $("#emailPost").val();
-    let messagePost = $("#messagePost").val();
+    // let namePost = $("#namePost").val();
+    // let emailPost = $("#emailPost").val();
+    // let messagePost = $("#messagePost").val();
       
     
     $.post(
       "/contact",
       {
-        name: namePost,
-        email: emailPost,
-        message: messagePost
+        name: $("#namePost").val(),
+        email: $("#emailPost").val(),
+        message: $("#messagePost").val(),
       },
       function (res, err) {
         if (err) {
-          $('#alert-failure').show;
-          throw new Error('You broke something with my server side validation. Why would you do this?');
+          $("#alert-failure").show;
+          console.log(err);
+        } else {
+          $("#contactForm").trigger("reset");
+          $("#alert-success").show();
         }
-          else {
-          $('#contactForm').trigger("reset");
-          $('#alert-success').show();
-        };
-        });
+      }
+    );
   })
 
 })

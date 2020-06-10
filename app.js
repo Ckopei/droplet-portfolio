@@ -4,10 +4,12 @@ require('dotenv').config();
 const PORT = 3000 || process.env;
 const app = express();
 const router = express.Router();
+const { check, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer')
 const bodyParser = require('body-parser')
-const GMAIL_USER = process.env.GMAIL_USER
-const GMAIL_PASS = process.env.GMAIL_PASS
+const EMAIL_USER = process.env.PEUN
+const EMAIL_PASS = process.env.PEPW
+const EMAIL_HOST = process.env.HOST
 
 
 // public folder routes are not seen as router routes.
@@ -32,20 +34,21 @@ router.get("/contact.html", function(req, res) {
 app.post('/contact', (req, res) => {
   check('req.body.name').isLength({ min: 3 });
   check('req.body.message').isLength({ min: 15 });
+  check('req.body.email').isEmail();
   // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: process.env.HOST,
     port: 465,
     secure: true,
     auth: {
-      user: GMAIL_USER,
-      pass: GMAIL_PASS,
+      user: EMAIL_USER,
+      pass: EMAIL_PASS,
     }
   }),
 
   // Specify what the email will look like
   const mailOpts = {
-    from: "Your sender info here", // This is ignored by Gmail
+    from: req.body.email || 'From contact form. Gmsil ignores this.', // This is ignored by Gmail
     to: GMAIL_USER,
     subject: "New message from contact form at kopels.dev",
     text: `The name is the sender: ${req.body.name},
@@ -54,10 +57,12 @@ app.post('/contact', (req, res) => {
   };
 
   // Attempt to send the email
-  smtpTrans.sendMail(mailOpts, (err, res) => {
-    if (err) {
-      return console.log(err); // Show a page indicating failure}
-    } else return res.json;
+  smtpTrans.sendMail(mailOpts, (req, res) => {
+    //using express's built in error checking and validation to build an object of errors is exist.
+    const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  } else return res.json;
   });
 });
 
