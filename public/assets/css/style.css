@@ -14,7 +14,7 @@ html, body {
    overflow-x: hidden;
 }
 
-.background {
+body {
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(22,59,78,1) 100%);
 }
@@ -50,6 +50,7 @@ html, body {
 }
 .card-img {
   height: 437px;
+  max-width: 30%;
   width: 350px;
   opacity: .6;
 }
@@ -65,8 +66,13 @@ div a {
     border: 2px solid black;
     box-sizing: inherit;
     display: inline-block;
+    overflow: hidden;
     font-size: 10pt;
     cursor: pointer;
+}
+div .card {
+  display: inline-block
+
 }
 .noBorder {
   border: none;
@@ -106,7 +112,7 @@ div a {
     color: white;
 }
 #alert-success, #alert-failure {
-  display: none;
+  display: hidden;
 }
 .text-focus-in {
 	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;

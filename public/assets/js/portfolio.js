@@ -1,5 +1,6 @@
 $(document).ready(function () {
   AOS.init();
+  $(".alert").alert();
   //if scroll is past 900px, changed the navbar into a sticky-top nav
   var headerHeight = 675;
 
