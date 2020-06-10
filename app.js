@@ -37,7 +37,7 @@ app.post('/contact', (req, res) => {
   check('req.body.email').isEmail();
   // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
-    host: process.env.HOST,
+    host: process.env.HOST ,
     port: 465,
     secure: true,
     auth: {
