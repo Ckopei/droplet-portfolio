@@ -1,5 +1,7 @@
+
 $(document).ready(function () {
   AOS.init();
+
   $(".alert").alert();
   //if scroll is past 900px, changed the navbar into a sticky-top nav
   var headerHeight = 675;
@@ -66,29 +68,37 @@ $(document).ready(function () {
 
   $("#formBtn").on("click", function () {
     event.preventDefault();
-    // let namePost = $("#namePost").val();
-    // let emailPost = $("#emailPost").val();
-    // let messagePost = $("#messagePost").val();
+    let namePost = toString($("#namePost").val());
+    let emailPost = toString($("#emailPost").val());
+    let messagePost = toString($("#messagePost").val());
+
+    let payLoad = {
+      name: namePost,
+      email: emailPost,
+      message: messagePost,
+    };
       
     
-    $.post(
-      "/contact",
-      {
-        name: $("#namePost").val(),
-        email: $("#emailPost").val(),
-        message: $("#messagePost").val(),
-      },
-      function (res, err) {
-        if (err) {
-          $("#alert-failure").show();
-          console.log(err);
-        } else {
-          console.log(res);
-          $("#contactForm").trigger("reset");
-          $("#alert-success").show();
-        }
-      }
-    );
+    // $.AJAX(
+    //   {
+    //     url: "/contact",
+    //     type: "put",
+    //     data: JSON.stringify(payLoad),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     dataType: "json",
+    //   }.then(function (res, err) {
+    //     if (err) {
+    //       $("#alert-failure").show();
+    //       console.log(err);
+    //     } else {
+    //       console.log(res);
+    //       $("#contactForm").trigger("reset");
+    //       $("#alert-success").show();
+    //     }
+    //   })
+    // );
   })
 
 })

@@ -58,7 +58,7 @@ margin-bottom: 10rem;
 }
 .card-img {
   height: 437px;
-  max-width: 30%;
+  overflow: hidden;
   width: 350px;
   opacity: .6;
 }
