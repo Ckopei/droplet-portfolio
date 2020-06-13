@@ -81,7 +81,6 @@ $(document).ready(function () {
   
     $.ajax({
       type: 'PUT',
-      url: "kopels.com/contact",
       contentType: 'application/json',
       data: JSON.stringify(data), // access in body
     }).done
