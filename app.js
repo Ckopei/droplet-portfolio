@@ -1,15 +1,17 @@
 const express = require("express");
 const path = require('path');
-require('dotenv').config();
-const PORT = 3000 || process.env;
+const mail = require('dotenv').config();
+const PORT = 3000;
 const app = express();
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
-const EMAIL_USER = process.env.PEUN;
-const EMAIL_PASS = process.env.PEPW;
-const EMAIL_HOST = process.env.HOST;
+const USER = process.env.PEUN;
+const PASS = process.env.PEPW;
+const SERVER = process.env.HOST;
+
+
 
 
 
@@ -34,24 +36,26 @@ router.get("/contact.html", function(req, res) {
 
 // POST route from contact form
 app.post('/contact', (req, res) => {
+  console.log(req.params+'          '+req.body);
+  
   check('req.body.name').isLength({ min: 3 });
   check('req.body.message').isLength({ min: 15 });
   check('req.body.email').isEmail();
   // Instantiate the SMTP server
   const smtpTrans = nodemailer.createTransport({
-    host: EMAIL_HOST ,
+    host: SERVER,
     port: 465,
     secure: true,
     auth: {
-      user: EMAIL_USER,
-      pass: EMAIL_PASS,
+      user: USER,
+      pass: PASS,
     }
   }),
 
   // Specify what the email will look like
  mailOpts = {
     from: req.body.email || 'From contact form. Gmsil ignores this.', // This is ignored by Gmail
-    to: EMAIL_USER,
+    to: USER,
     subject: "New message from contact form at kopels.dev",
     text: `The name is the sender: ${req.body.name},
     The email of the sender: (${req.body.email}),

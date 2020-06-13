@@ -72,33 +72,26 @@ $(document).ready(function () {
     let emailPost = toString($("#emailPost").val());
     let messagePost = toString($("#messagePost").val());
 
-    let payLoad = {
+    let data = {
       name: namePost,
       email: emailPost,
       message: messagePost,
     };
-      
     
-    // $.AJAX(
-    //   {
-    //     url: "/contact",
-    //     type: "put",
-    //     data: JSON.stringify(payLoad),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     dataType: "json",
-    //   }.then(function (res, err) {
-    //     if (err) {
-    //       $("#alert-failure").show();
-    //       console.log(err);
-    //     } else {
-    //       console.log(res);
-    //       $("#contactForm").trigger("reset");
-    //       $("#alert-success").show();
-    //     }
-    //   })
-    // );
-  })
+  
+    $.ajax({
+      type: 'PUT',
+      url: "kopels.com/contact",
+      contentType: 'application/json',
+      data: JSON.stringify(data), // access in body
+    }).done
+      (function (res, err) {
+        if (res) {
+          $("#contactForm").trigger("reset");
+          $("#alert-success").show();
+          console.log(res);
+        } else console.log(err);
+      });
+  });
 
-})
+});
