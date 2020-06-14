@@ -80,7 +80,7 @@ $(document).ready(function () {
     
   
     $.ajax({
-      type: 'PUT',
+      type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(data), // access in body
     }).done
