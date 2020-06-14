@@ -81,6 +81,7 @@ $(document).ready(function () {
   
     $.ajax({
       type: 'POST',
+      url:'/contact',
       contentType: 'application/json',
       data: JSON.stringify(data), // access in body
     }).done
