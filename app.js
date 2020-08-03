@@ -1,8 +1,8 @@
 const express = require("express");
-const path = require('path');
-const mail = require('dotenv').config();
-const PORT = 3000;
+const subdomain = require("express-subdomain");
 const app = express();
+const PORT = 3000;
+const path = require('path');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 const nodemailer = require('nodemailer');
@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
+app.use(subdomain("email", router));
 
 
 
@@ -32,6 +33,10 @@ router.get("/", function(req, res) {
 router.get("/contact.html", function(req, res) {
   // res.sendFile(path.join(__dirname+"/index.html"));
   res.sendFile("contact.html")
+});
+
+router.get('email/', function (req, res) {
+  res.window.location.href = 'email.kopel.dev';
 });
 
 // POST route from contact form
